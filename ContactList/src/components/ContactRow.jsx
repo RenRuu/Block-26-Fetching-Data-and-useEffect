@@ -1,12 +1,18 @@
-export default function ContactRow ({ contact }){
+export default function ContactRow({ setSelectedContactId, contact }) {
+    if (!contact) {
+      contact = {};
+    }
+
     return (
-        <tr>
-            <td>{contact.name}</td>
-            <td>{contact.phone}</td>
-            <td>{contact.email}</td>
-        </tr>   
+      <tr className="contactInfos"
+        onClick={() => {
+          setSelectedContactId(contact.id);
+        }}
+      >
+        <td>{contact.name}</td>
+        <td>{contact.email}</td>
+        <td>{contact.phone}</td>
+      </tr>
     );
-}
-
-
+  }
 
